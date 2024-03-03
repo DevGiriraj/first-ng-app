@@ -4,11 +4,13 @@ import { UserProfileComponent } from './component/user-profile/user-profile.comp
 import { CommonModule } from '@angular/common';
 import { user } from './model/user';
 import { JokeComponent } from './component/joke/joke.component';
+import { AComponent } from './component/a/a.component';
+import { B1Component } from './component/b1/b1.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,UserProfileComponent,CommonModule,JokeComponent],
+  imports: [RouterOutlet,UserProfileComponent,CommonModule,JokeComponent,AComponent,B1Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -22,7 +24,6 @@ export class AppComponent {
   ]
 recevedData(e:user){
 console.log(e)
-
 
 
 const userIndex= this.users.findIndex(users=>users.name==e.name)
