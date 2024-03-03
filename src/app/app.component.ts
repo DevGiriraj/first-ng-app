@@ -15,16 +15,22 @@ export class AppComponent {
   title = 'first-ng-app';
   users=[
 {name:"ramesh",isSingle:true,salary:7000},
-{name:"mukesh",isSingle:false,salary:9000},
-{name:"nitesh",isSingle:true,salary:8000},
+// {name:"mukesh",isSingle:false,salary:9000},
+// {name:"nitesh",isSingle:true,salary:8000},
 
   ]
 recevedData(e:user){
 console.log(e)
 
+
+
 const userIndex= this.users.findIndex(users=>users.name==e.name)
 this.users[userIndex].salary=e.newSalary
 
+  }
+
+  clear(){
+   this.users=[]
   }
 
 }
