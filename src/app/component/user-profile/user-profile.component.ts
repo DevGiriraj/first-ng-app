@@ -60,16 +60,12 @@ constructor(){
 //dependency injection
 // event listener register
 console.log("constructor called" , this.name)
-console.log("constructor called", this.heading?.nativeElement.textContent)
 }
   ngAfterViewInit(): void {
-    
-console.log("ngAfterViewInit called" , this.name)
-console.log("ngAfterViewInit native called", this.heading?.nativeElement.textContent)
+    console.log("ngAfterViewInit native called", this.heading?.nativeElement.textContent)
   }
   ngOnInit(): void {
     console.log("ngOnInit called" , this.name)
-    console.log("ngOnInit called", this.heading?.nativeElement.textContent)
   }
   ngOnDestroy(): void {
     console.log("ngOnDestroy Called")
@@ -77,7 +73,6 @@ console.log("ngAfterViewInit native called", this.heading?.nativeElement.textCon
 
 ngOnChanges(changes: SimpleChanges): void {
     console.log("ngOnchange called",changes)
-    console.log("ngOnChanges called", this.heading?.nativeElement.textContent)
   }
     
   }
