@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input,OnChanges,OnDestroy,OnInit,Output,SimpleChanges,ViewChild,booleanAttribute, numberAttribute, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input,OnChanges,OnDestroy,OnInit,Output,SimpleChanges,ViewChild,booleanAttribute, input, numberAttribute, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { __values } from 'tslib';
 import { user } from '../../model/user';
@@ -40,7 +40,11 @@ export class UserProfileComponent implements OnInit ,OnDestroy ,OnChanges,AfterV
 // }
 
 
-@Input({alias:"userName"}) name=""
+// @Input({alias:"userName"}) name=""
+name=input("",{
+  alias:"userName",
+})
+
 @Input({transform:booleanAttribute}) isSingle! :boolean
 @Input({transform:numberAttribute}) salary! :number
 
@@ -52,20 +56,20 @@ export class UserProfileComponent implements OnInit ,OnDestroy ,OnChanges,AfterV
 @ViewChild ("myheading") heading? :ElementRef
 
 sendData(){
-  this.myEvent.emit({name:this.name , newSalary:25000})
+  this.myEvent.emit({name:this.name() , newSalary:25000})
 }
 
 constructor(){
 // init properties
 //dependency injection
 // event listener register
-console.log("constructor called" , this.name)
+console.log("constructor called" , this.name())
 }
   ngAfterViewInit(): void {
     console.log("ngAfterViewInit native called", this.heading?.nativeElement.textContent)
   }
   ngOnInit(): void {
-    console.log("ngOnInit called" , this.name)
+    console.log("ngOnInit called" , this.name())
   }
   ngOnDestroy(): void {
     console.log("ngOnDestroy Called")
